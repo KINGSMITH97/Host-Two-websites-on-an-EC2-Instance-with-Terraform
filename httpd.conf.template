@@ -1,0 +1,15 @@
+<VirtualHost 10.0.2.30:80>
+    ServerAdmin webmaster@web1.com
+    ServerName 10.0.2.30
+    DocumentRoot "/var/www/html/web1"
+    ErrorLog "logs/web1.com-error_log"
+    CustomLog "logs/web1.com-access_log" common
+</VirtualHost>
+
+<VirtualHost 10.0.2.31:80>
+    ServerAdmin webmaster@web2.com
+    ServerName 10.0.2.31
+    DocumentRoot "/var/www/html/web2"
+    ErrorLog "logs/web2.com-error_log"
+    CustomLog "logs/web2.com-access_log" common
+</VirtualHost>

@@ -1,8 +1,7 @@
 
+
 module "create_vpc" {
   source = "./modules/vpc"
-  subnet_cidr_block = var.subnet_cidr_block
-  vpc_cidr_block = var.vpc_cidr_block
   instance_id = module.create_ec2.instance_id
 }
 

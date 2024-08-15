@@ -1,20 +1,11 @@
 
-
-variable "vpc_cidr_block" {
-  type    = string
-}
-
-variable "subnet_cidr_block" {
-  type    = string
-}
-
 variable "instance_id" {
   type = string
 }
 
 #creating the VPC
 resource "aws_vpc" "king_vpc" {
-  cidr_block       = var.vpc_cidr_block
+  cidr_block       = data.aws_ssm_parameter.vpc_cidr_block.value
   instance_tenancy = "default"
 
   tags = {
@@ -24,7 +15,7 @@ resource "aws_vpc" "king_vpc" {
 
 #creating subnet
 resource "aws_subnet" "pb_subnet" {
-  cidr_block        = var.subnet_cidr_block
+  cidr_block        = data.aws_ssm_parameter.subnet_cidr_block.value
   vpc_id            = aws_vpc.king_vpc.id
   availability_zone = "us-east-1a"
   map_public_ip_on_launch = true

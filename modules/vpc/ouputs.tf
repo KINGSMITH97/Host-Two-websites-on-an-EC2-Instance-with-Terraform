@@ -1,6 +1,3 @@
-output "vpc_id" {
-  value = aws_vpc.king_vpc.id
-}
 
 output "pb_subnet" {
   value = aws_subnet.pb_subnet.id
